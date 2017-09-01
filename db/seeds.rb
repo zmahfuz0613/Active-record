@@ -16,6 +16,7 @@ ramsey = Teacher.create!(name: 'Ramsey', photo: 'https://docs.npmjs.com/images/n
 
 puts "#{Teacher.count} teachers created!"
 
+
 # ari courses
 Course.create!(name: 'Stealing Snacks 101', teacher: ari, start_date: 1.month.ago, end_date: 2.days.from_now)
 Course.create!(name: 'Dancing 201', teacher: ari, start_date: 3.weeks.ago, end_date: 2.weeks.from_now)
@@ -34,7 +35,7 @@ Course.create!(name: 'DOM102: The Dominic Object Model in You', teacher: dom, st
 Course.create!(name: 'DOM103: Being more than just an Object', teacher: dom, start_date: 5.days.ago, end_date: 6.days.from_now)
 
 # drew courses
-101.upto(109) do |i|
+101.upto(105) do |i|
   Course.create!(name: "Kotlin #{i}", teacher: drew, start_date: 1.day.ago, end_date: i.years.from_now)
   Course.create!(name: "Java #{i}", teacher: drew, start_date: 1.day.ago, end_date: i.years.from_now)
 end
@@ -49,3 +50,15 @@ Course.create!(name: 'Cats 101: Trapped in Catbox', teacher: j, start_date: 7.da
 Course.create!(name: 'Heroku 101: Are ~you~ hosted on Heroku?', teacher: ramsey, start_date: 1.week.ago, end_date: 3.days.from_now)
 Course.create!(name: 'What programming langauge are ~you~', teacher: ramsey, start_date: 1.week.ago, end_date: 3.days.from_now)
 Course.create!(name: 'NPM 101: How to deploy yourself to NPM', teacher: ramsey, start_date: 1.week.ago, end_date: 3.days.from_now)
+
+
+puts "#{Course.count} courses created!"
+
+
+Course.all.find_each do |course|
+  5.times do
+    Student.create!(name: Faker::Name.name, course: course, grade: 50 + rand(50))
+  end
+end
+
+puts "#{Student.count} students created!"
