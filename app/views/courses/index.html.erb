@@ -1,0 +1,9 @@
+<h3><%=@teacher.name%>'s courses</h3>
+
+<ul>
+  <% @courses.each do |course| %>
+    <li>
+      <%= link_to course.name, teacher_course_path(@teacher, course) %>
+    </li>
+  <% end %>
+</ul>

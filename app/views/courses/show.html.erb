@@ -1,0 +1,20 @@
+<h3><%= @course.name %></h3>
+
+<div class="course-teacher">
+  <b>Teacher:</b> <%= link_to @teacher.name, teacher_path(@teacher) %>
+</div>
+
+<table class='student-table'>
+  <tr>
+    <th>Name</th>
+    <th>Grade</th>
+  </tr>
+
+  <% @students.each do |student| %>
+    <tr>
+      <td><%= student.name %></td>
+      <!-- <td><%= student %></td> -->
+      <td><%= student.grade %></td>
+    </tr>
+  <% end %>
+</table>
