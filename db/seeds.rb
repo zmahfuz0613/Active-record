@@ -57,7 +57,7 @@ puts "#{Course.count} courses created!"
 
 Course.all.find_each do |course|
   5.times do
-    Student.create!(name: Faker::Name.name, course: course, grade: 50 + rand(50))
+    Student.create!(name: Faker::Name.name, course: course, grade: 50 + rand(50), age: 15 + rand(40))
   end
 end
 
