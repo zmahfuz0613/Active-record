@@ -2,6 +2,8 @@
 
 <div class="course-teacher">
   <b>Teacher:</b> <%= link_to @teacher.name, teacher_path(@teacher) %>
+  |
+  <%= link_to "Other Courses", teacher_courses_path(@teacher) %>
 </div>
 
 <table class='student-table'>

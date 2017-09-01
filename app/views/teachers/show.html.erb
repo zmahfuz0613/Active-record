@@ -3,3 +3,7 @@
 <div class="teacher-photo-area">
   <%= image_tag @teacher.photo %>
 </div>
+
+<br>
+
+<%= link_to "#{@teacher.name}'s courses", teacher_courses_path(@teacher) %>
