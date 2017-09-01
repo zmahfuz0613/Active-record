@@ -1,4 +1,6 @@
 class Teacher < ApplicationRecord
+  include Studentsable
+
   has_many :courses
   has_many :students, through: :courses
 

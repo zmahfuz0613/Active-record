@@ -10,6 +10,6 @@ class CoursesController < ApplicationController
     @teacher = @course.teacher
 
     @pairs = @course.generate_pairs
-    @top_student = @students.top
+    @top_student = @course.top_student
   end
 end
