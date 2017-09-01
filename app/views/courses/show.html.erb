@@ -21,3 +21,11 @@
     </tr>
   <% end %>
 </table>
+
+<br>
+Random pairs:
+<ul>
+  <% @pairs.each do |pair| %>
+    <li><%= pair.map(&:name).join(' & ') %></li>
+  <% end %>
+</ul>

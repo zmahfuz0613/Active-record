@@ -8,5 +8,6 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
     @students = @course.students.order(:name)
     @teacher = @course.teacher
+    @pairs = @course.generate_pairs
   end
 end
