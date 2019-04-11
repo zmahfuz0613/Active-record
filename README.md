@@ -1,24 +1,19 @@
----
-title: Active Record 101
-type: lesson
-duration: "2:30"
-creator:
-    name: Ari Brenner
-    city: NY
-competencies: Programming
----
+# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png)  WEB DEVELOPMENT IMMERSIVE
 
-# Active Record 101
+## Getting started
+
+1. Fork
+1. Create a feature branch
+1. Clone
+1. Pull Request
+
+# Active Record
 
 ### Objectives
 *After this lesson, students will be able to:*
 - LEARN ACTIVE RECORD
 
-### Preparation
-*Before this lesson, students should:*
-- NOT KNOW ACTIVE RECORD
-
-[Setup instructions here](https://git.generalassemb.ly/wdi-nyc-garlic/LECTURE_U04_D06_Active-Record-101/blob/master/setup.md#set-up)
+[Setup instructions here](/setup.md#set-up)
 
 ## What _is_ Active Record???
 
