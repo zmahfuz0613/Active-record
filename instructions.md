@@ -78,7 +78,7 @@ Let's check out `db/schema.rb` to visualize our schema
 
 ## Adding relations
 
-Let's go back to [Relations and Models](#ar-relations) part of the lecture and discuss these again.
+Let's go back to [Relations and Models](/#ar-relations) part of the lecture and discuss these again.
 
 You may use these as your relations.
 
