@@ -101,6 +101,21 @@ This seed file uses the `Faker` gem to generate random names. Add `gem 'faker'` 
 
 Let's jump back into the console (`rails c`) and make sure these relations are working as we expect!
 
+Let's see the output:
+
+```ruby
+Student.all
+```
+
+Now add `gem 'pry-rails'` to your Gemfile and `bundle install`.
+Run: 
+
+```ruby
+Student.all
+```
+
+and
+
 ```ruby
 teacher = Teacher.find_by(name: 'Professor Ari') # => a Teacher !
 teacher.courses # => courses !
