@@ -15,15 +15,15 @@
 
 #### A `Teacher` model
 
-* Add a `Teacher` model: `rails g model Teacher`
+* Add a `Teacher` model: `rails g model Teacher name:string photo:string`
   * Open up the newest migration in in the `db/migrate` directory.
-  * Add a `name` and `photo` column
+  * Let's checkou the migration file before we migrate it. Notice a `name` and `photo` column has been added.
   ```ruby
     def change
       create_table :teachers do |t|
         t.string :name
         t.string :photo
-
+        
         t.timestamps # updated_at and created_at
       end
     end
@@ -38,7 +38,7 @@
 
 #### A `Course` model
 
-* Add a `Course` Model - `rails g model Course`
+* Add a `Course` Model - `rails g model Course name:string start_date:date end_date:date teacher:references`
   ```ruby
     def change
       create_table :courses do |t|
@@ -56,7 +56,7 @@
 
 #### A `Student` model
 
-* One more model - `rails g model Student`
+* One more model - `rails g model Student name:string grade:integer age:integer course:references`
   ```ruby
     def change
       create_table :students do |t|
@@ -70,6 +70,13 @@
     end
   ```
 * `rails db:migrate`
+
+#### Create Many-to-Many relationship
+
+```ruby
+rails g migration CreateJoinTableTeachersStudents teachers students
+```
+
 * **commit**
 
 We did it!
@@ -78,9 +85,28 @@ Let's check out `db/schema.rb` to visualize our schema
 
 ## Adding relations
 
-Let's go back to [Relations and Models](/README.md#ar-relations) part of the lecture and discuss these again.
+Now add your relationships in your models:
 
-You may use these as your relations.
+```ruby
+class Teacher < ApplicationRecord
+    has_many :courses
+    has_and_belongs_to_many :students
+end
+```
+
+```ruby
+class Course < ApplicationRecord
+    belongs_to :teacher
+    has_many :students
+end
+```
+
+```ruby
+class Student < ApplicationRecord
+    belongs_to :course
+    has_and_belongs_to_many :teacher   
+end
+```
 
 ## Seeding the data
 
