@@ -231,13 +231,7 @@ def show
 end
 ```
 
-Now we can add a `show` view.  What is the course name?  Can we list the students?  Who is the teacher?  This is a blank canvas and you are Frida Kahlo.
-
-
-## Easy Bonus!
-
-Add the routes, controllers, and views for students!
-
+Now we can add a `show` view. 
 
 ## Advice
 
