@@ -1,8 +1,10 @@
 
 <%= @teacher.name %>
-<div class="teacher-photo-area">
-  <%= image_tag @teacher.photo %>
-</div>
+<% if @teacher.photo %>
+  <div class="teacher-photo-area">
+    <%= image_tag @teacher.photo %>
+  </div>
+<% end %>
 
 <br>
 
