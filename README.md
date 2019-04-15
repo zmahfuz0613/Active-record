@@ -131,7 +131,7 @@ stacey.update(name: 'Dr. Stacey', grade: 100)
 ```
 
 
-## AR Relations
+## Active Record Relations
 
 Assume we have a few tables, `students`, `teachers`, and `courses`.  And assume that a teacher can teach many courses but a student can only belong to one course.
 
@@ -140,19 +140,19 @@ Thus, the `students` table would have a `course_id`.  And the `course` table wou
 As long as we have that, we can represent all of our relations using AR!
 
 ```ruby
-class Student < ApplicationRecord
-  belongs_to :course
-  has_one :teacher, through: :course
-end
-
 class Teacher < ApplicationRecord
-  has_many :courses
-  has_many :students, through: :courses
+    has_many :courses
+    has_and_belongs_to_many :students
 end
 
 class Course < ApplicationRecord
-  belongs_to :teacher
-  has_many :students
+    belongs_to :teacher
+    has_many :students
+end
+
+class Student < ApplicationRecord
+    belongs_to :course
+    has_and_belongs_to_many :teacher   
 end
 ```
 
