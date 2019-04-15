@@ -4,7 +4,7 @@ class Teacher < ApplicationRecord
   has_many :courses
   has_many :students, through: :courses
 
-  validates_presence_of :name, :photo
+  validates_presence_of :name
 
 
   def say_hi
