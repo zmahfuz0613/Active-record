@@ -167,11 +167,11 @@ resources :teachers, only: [:index, :show] do
 end
 ```
 
-Let's add our controller: `rails g controller teachers`.
+Let's add our controller: `rails g controller courses`.
 
 This time our controller is a little different because of the nesting.
 
-Because of how routes `resources` work, we will get a `teacher_id` as a param.
+Because of how nested routes work, we will get a `teacher_id` as a param for `courses`.
 
 Let's do a `rails routes` to visualize this.
 
