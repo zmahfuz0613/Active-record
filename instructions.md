@@ -236,12 +236,12 @@ Now we can add a `show` view.  What is the course name?  Can we list the student
 
 ## Easy Bonus!
 
-Add routes, controllers, and views for students!
+Update the routes, controllers, and views for students!
 
 
 ## Advice
 
-* Have exactly three tabs open in one terminal widow: bash, `rails s`, and `rails c`.  Have these three always open. Always one window.  Always in the same order.  And you will not get lost.
+* Have exactly three tabs open in one terminal widow: bash, `rails s`, and `rails c`.
 * When you do a thing, and that thing works, commit that thing.
 
 
