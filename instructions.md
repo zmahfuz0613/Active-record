@@ -10,8 +10,6 @@
 * `rails new SchoolApp --database=postgresql`
 * `cd SchoolApp`
 * `rails db:create`
-* `git init`
-* Stage *everything* and commit. (This is only the time you _should_ `add -A`)
 
 ## Creating our models
 
