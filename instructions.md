@@ -30,7 +30,7 @@
   ```
 * `rails db:migrate`
 * Add related files and **commit**
-  * `app/models/teacher.rb` - Defines the `Course` class
+  * `app/models/teacher.rb` - Defines the `Teacher` class
   * `db/migrate/TIMESTAMP_create_teachers.rb` - Defines the migration that creates the `teachers` table
     * Do **not** edit this file after running `rails db:migrate` (until learn how to do this safely)
   * `db/schema.rb` includes all of your migrations.
