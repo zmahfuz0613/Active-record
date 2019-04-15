@@ -84,6 +84,8 @@ You may use these as your relations.
 
 ## Seeding the data
 
+This seed file that we will create uses the `Faker` gem to generate random names. Add `gem 'faker'` to your `Gemfile` and then run `bundle install` so Rails can use this gem.
+
 Create teachers, courses, and students in your `db/seeds.rb` file.  Then run `rails db:seed`.
 
 > If you change seed file and want to run it again you should run `rails db:reset` instead as this will delete all the entries before seeding
@@ -91,11 +93,6 @@ Create teachers, courses, and students in your `db/seeds.rb` file.  Then run `ra
 You may [use this](db/seeds.rb) as your seed data.
 
 Save this as your `db/seeds.rb`
-
-### Side note: adding gems
-
-This seed file uses the `Faker` gem to generate random names. Add `gem 'faker'` to your `Gemfile` and then run `bundle install` so Rails can use this gem.
-
 
 ## Playing around with the relations
 
