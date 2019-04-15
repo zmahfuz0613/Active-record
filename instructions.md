@@ -236,7 +236,7 @@ Now we can add a `show` view.  What is the course name?  Can we list the student
 
 ## Easy Bonus!
 
-Update the routes, controllers, and views for students!
+Add the routes, controllers, and views for students!
 
 
 ## Advice
