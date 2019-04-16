@@ -16,7 +16,7 @@
 
 * Add a `Teacher` model: `rails g model Teacher name:string photo:string`
   * Open up the newest migration in in the `db/migrate` directory.
-  * Let's checkou the migration file before we migrate it. Notice a `name` and `photo` column has been added.
+  * Let's checkout the migration file before we migrate it. Notice a `name` and `photo` column has been added.
   ```ruby
     def change
       create_table :teachers do |t|
