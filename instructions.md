@@ -7,7 +7,7 @@
 
 * Get outside of this repo (we are starting from scratch)
 * `rails new school-app --database=postgresql`
-* `cd SchoolApp`
+* `cd school-app`
 * `rails db:create`
 
 ## Creating our models
