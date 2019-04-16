@@ -17,16 +17,16 @@
 * Add a `Teacher` model: `rails g model Teacher name:string photo:string`
   * Open up the newest migration in in the `db/migrate` directory.
   * Let's checkout the migration file before we migrate it. Notice a `name` and `photo` column has been added.
-  ```ruby
-    def change
-      create_table :teachers do |t|
-        t.string :name
-        t.string :photo
-        
-        t.timestamps # updated_at and created_at
-      end
-    end
-  ```
+```ruby
+def change
+  create_table :teachers do |t|
+    t.string :name
+    t.string :photo
+
+    t.timestamps # updated_at and created_at
+  end
+end
+```
 * `rails db:migrate`
 * Add related files and **commit**
   * `app/models/teacher.rb` - Defines the `Teacher` class
@@ -38,36 +38,36 @@
 #### A `Course` model
 
 * Add a `Course` Model - `rails g model Course name:string start_date:date end_date:date teacher:references`
-  ```ruby
-    def change
-      create_table :courses do |t|
-        t.string :name
-        t.date :start_date
-        t.date :end_date
-        t.integer :teacher_id, index: true
+```ruby
+def change
+  create_table :courses do |t|
+    t.string :name
+    t.date :start_date
+    t.date :end_date
+    t.references :teacher, foreign_key: true
 
-        t.timestamps
-      end
-    end
-  ```
+    t.timestamps
+  end
+end
+```
 * `rails db:migrate`
 * **commit**
 
 #### A `Student` model
 
 * One more model - `rails g model Student name:string grade:integer age:integer course:references`
-  ```ruby
-    def change
-      create_table :students do |t|
-        t.string :name
-        t.integer :grade
-        t.integer :age
-        t.integer :course_id, index: true
+```ruby
+def change
+  create_table :students do |t|
+    t.string :name
+    t.integer :grade
+    t.integer :age
+    t.references :course, foreign_key: true
 
-        t.timestamps
-      end
-    end
-  ```
+    t.timestamps
+  end
+end
+```
 * `rails db:migrate`
 
 #### Create Many-to-Many relationship
@@ -75,7 +75,7 @@
 ```ruby
 rails g migration CreateJoinTableTeachersStudents teachers students
 ```
-
+* `rails db:migrate`
 * **commit**
 
 We did it!
