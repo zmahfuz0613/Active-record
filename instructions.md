@@ -170,6 +170,18 @@ end
 
 And a view in `app/views/teachers/index.html.erb`.  Here is your chance to be creative.  Display a list of all the teachers however you want!
 
+```ruby
+<h2>Teachers</h2>
+
+<ul>
+  <% @teachers.each do |teacher| %>
+    <li>
+      <%= link_to teacher.name, teacher_path(teacher) %>
+    </li>
+  <% end %>
+</ul>
+```
+
 Start your server: `rails s` and go to `http://localhost:3000/teachers`
 
 Now let's add a `show` method
@@ -181,6 +193,23 @@ end
 ```
 
 And add a view to `app/views/teachers/show.html.erb`
+
+```ruby
+<%= @teacher.name %>
+<% if @teacher.photo %>
+  <div class="teacher-photo-area">
+    <%= image_tag @teacher.photo %>
+  </div>
+<% end %>
+```
+
+Add a bit of styling to `app/assets/stylesheets/teachers.scss`
+
+```css
+.teacher-photo-area img {
+    max-width: 200px;
+}
+```
 
 #### Courses
 
@@ -218,9 +247,43 @@ end
 
 Now that we have a hold of the `teacher` and their `courses` we can do whatever we want with the index view.
 
-Tell us who the teacher is! List the courses!  Use that thing in your skull.
+Let's add a link to the teacher's courses in `app/views/teachers/show.html.erb`
 
-For `show` maybe we can start with something like this
+```ruby
+....
+<%= link_to "#{@teacher.name}'s courses", teacher_courses_path(@teacher) %
+```
+
+For this link to work we need to setup the courses controller and view:
+
+`app/controllers/courses_controller.rb`
+
+```ruby
+class CoursesController < ApplicationController
+    def index
+        @teacher = Teacher.find(params[:teacher_id])
+        @courses = @teacher.courses
+    end
+end
+```
+
+`app/views/courses/index.html.erb`
+
+```ruby
+<h3><%=@teacher.name%>'s courses</h3>
+<ul>
+  <% @courses.each do |course| %>
+    <li>
+      <%= link_to course.name, teacher_course_path(@teacher, course) %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to "Back to #{@teacher.name}", teacher_path(@teacher) %>
+```
+
+Awesome! We can now see the teacher's courses. What if we want to see a specific course?
+
+Let's create our `show` method in the courses controller:
 
 ```ruby
 def show
@@ -230,7 +293,60 @@ def show
 end
 ```
 
-Now we can add a `show` view. 
+And add a `show` view.
+
+```ruby
+<h3><%= @course.name %></h3>
+
+<div class="course-teacher">
+  <b>Teacher:</b> <%= link_to @teacher.name, teacher_path(@teacher) %>
+  |
+  <%= link_to "Other Courses", teacher_courses_path(@teacher) %>
+</div>
+
+<table class='student-table'>
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Grade</th>
+  </tr>
+  <% @students.each do |student| %>
+    <tr>
+      <td><%= student.name %></td>
+      <td><%= student.age %></td>
+      <td><%= student.grade %></td>
+    </tr>
+  <% end %>
+</table>
+```
+
+Let's add a model method in our Course model to generate random pairs:
+
+```ruby
+  def generate_pairs
+    students.shuffle.each_slice(2).to_a
+  end
+```
+
+To use this method in the our Course view, we need to configure our Course controller and add:
+
+```ruby
+....
+@pairs = @course.generate_pairs
+....
+```
+
+Now the last piece, we can now generate pairs in our Course view:
+
+```ruby
+....
+Random pairs:
+<ul>
+  <% @pairs.each do |pair| %>
+    <li><%= pair.map(&:name).join(' & ') %></li>
+  <% end %>
+</ul>
+```
 
 ## Advice
 
