@@ -103,7 +103,7 @@ end
 ```ruby
 class Student < ApplicationRecord
     belongs_to :course
-    has_and_belongs_to_many :teacher   
+    has_and_belongs_to_many :teachers   
 end
 ```
 
@@ -118,6 +118,17 @@ Create teachers, courses, and students in your `db/seeds.rb` file.  Then run `ra
 You may [use this](db/seeds.rb) as your seed data.
 
 Save this as your `db/seeds.rb`
+
+You will have to append the following to the end of your `db/seed.rb` file to properly setup your teacher:student many-to-many association (this will populate the teacher:student join table):
+
+```ruby
+students = Student.all
+teachers = Teacher.all
+
+students.each do |student|
+  student.course.teacher.students << student
+end
+```
 
 ## Playing around with the relations
 
@@ -251,7 +262,7 @@ Let's add a link to the teacher's courses in `app/views/teachers/show.html.erb`
 
 ```ruby
 ....
-<%= link_to "#{@teacher.name}'s courses", teacher_courses_path(@teacher) %
+<%= link_to "#{@teacher.name}'s courses", teacher_courses_path(@teacher) %>
 ```
 
 For this link to work we need to setup the courses controller and view:
