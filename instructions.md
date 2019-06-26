@@ -111,13 +111,13 @@ end
 
 Create teachers, courses, and students in your `db/seeds.rb` file.  
 
-Then run `rails db:seed`.
-
 > If you change seed file and want to run it again you should run `rails db:reset` instead as this will delete all the entries before seeding
 
 [Use this](db/seeds.rb) file as your seed data.
 
 Save this as your `db/seeds.rb`
+
+Then run `rails db:seed`.
 
 ## Playing around with the relations
 
