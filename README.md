@@ -159,7 +159,7 @@ end
 Now look how much we can do without having to write any SQL!
 
 ```ruby
-ari = Teacher.find_by(name: 'Ari Brenner')
+ari = Teacher.find_by(name: 'Professor Ari')
 ari.courses # => a bunch of courses! (Instances of Course)
 ari.students # => a bunch of students! (Instances of Student)
 
