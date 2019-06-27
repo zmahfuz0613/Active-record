@@ -10,3 +10,4 @@ To use this app
   - In a new tab, run `rails server` (or just `rails s`)
 * To open the console:
   - In a new tab, run `rails console` (or just `rails c`)
+  - If you are having trouble loading the rails console, try `spring stop`.
