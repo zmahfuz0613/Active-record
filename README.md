@@ -3,8 +3,8 @@
 ## Getting started
 
 1. Fork
-1. Create a feature branch
 1. Clone
+1. Create a feature branch
 1. Pull Request
 
 # Active Record
