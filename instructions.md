@@ -123,13 +123,9 @@ Then run `rails db:seed`.
 
 Let's jump back into the console (`rails c`) and make sure these relations are working as we expect!
 
-Let's see the output:
+Before jumping into the console, add `gem 'pry-rails'` to your Gemfile and `bundle install`.
 
-```ruby
-Student.all
-```
-
-Now add `gem 'pry-rails'` to your Gemfile and `bundle install`.
+Use the console (`rails c`) to make sure these relations are working as we expect!
 Run: 
 
 ```ruby
