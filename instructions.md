@@ -111,6 +111,8 @@ end
 
 Create teachers, courses, and students in your `db/seeds.rb` file.  
 
+Add `'gem faker'` in your Gemfile. The run `bundle install`
+
 > If you change seed file and want to run it again you should run `rails db:reset` instead as this will delete all the entries before seeding
 
 [Use this](db/seeds.rb) file as your seed data.
