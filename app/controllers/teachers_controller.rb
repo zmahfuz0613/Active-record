@@ -1,11 +1,17 @@
 class TeachersController < ApplicationController
+
+  # GET /teachers
   def index
     @teachers = Teacher.all
+
+    render json: @teachers
   end
 
+  # GET /teachers/1
   def show
     @teacher = Teacher.find(params[:id])
 
-    @top_student = @teacher.top_student
+    render json: @teacher
   end
+
 end

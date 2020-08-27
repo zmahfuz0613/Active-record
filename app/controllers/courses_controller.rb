@@ -1,15 +1,17 @@
+# frozen_string_literal: true
+
 class CoursesController < ApplicationController
+  # GET /courses
   def index
-    @teacher = Teacher.find(params[:teacher_id])
-    @courses = @teacher.courses
+    @courses = Course.all
+
+    render json: @courses
   end
 
+  # GET /courses/1
   def show
     @course = Course.find(params[:id])
-    @students = @course.students.order(:name)
-    @teacher = @course.teacher
 
-    @pairs = @course.generate_pairs
-    @top_student = @course.top_student
+    render json: @course
   end
 end
