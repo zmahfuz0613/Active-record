@@ -74,7 +74,7 @@ SET grade = 100
 WHERE (students.age BETWEEN 20 AND 30);
 ```
 ```ruby
-Student.where(age: 20..30).update_all(grade: 100)
+Student.where(age: 20..30).update(grade: 100)
 ```
 
 Updating one:
